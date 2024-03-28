@@ -64,4 +64,19 @@ public class Controller {
             return new Pair<>("description", "Питомца с заданным номером не найдено для изменения!");
         }
     }
+
+    /*
+        {
+            "id": 1
+        }
+     */
+    @DeleteMapping(value = "/deletePet", consumes = "application/json", produces = "application/json")
+    public Pair<String, String> deletePet(@RequestBody Map<String, Integer> id) {
+        if (petModal.getAll().containsKey(id.get("id"))) {
+            petModal.delete(id.get("id"));
+            return new Pair<>("description", "Питомец успешно удалён!");
+        } else {
+            return new Pair<>("description", "Питомца с заданным номером не найдено для удаления!");
+        }
+    }
 }

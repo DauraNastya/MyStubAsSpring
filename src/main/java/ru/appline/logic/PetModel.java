@@ -25,6 +25,10 @@ public class PetModel implements Serializable {
         model.replace(id, pet);
     }
 
+    public void delete(int id) {
+        model.remove(id);
+    }
+
     public Pet getFromList(int id) {
         return model.get(id);
     }
