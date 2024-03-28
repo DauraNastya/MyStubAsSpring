@@ -10,7 +10,7 @@ public class PetModel implements Serializable {
     private final Map<Integer, Pet> model;
 
     public PetModel() {
-        model = new HashMap<Integer, Pet>();
+        model = new HashMap<>();
     }
 
     public static PetModel getInstance() {
@@ -19,6 +19,10 @@ public class PetModel implements Serializable {
 
     public void add(Pet pet, int id) {
         model.put(id, pet);
+    }
+
+    public void edit(Pet pet, int id) {
+        model.replace(id, pet);
     }
 
     public Pet getFromList(int id) {
